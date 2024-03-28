@@ -1,0 +1,18 @@
+{% extends 'homepage.html'%}
+{% block content %}
+<div class="container">
+    <h1>BLOG POSTS</h1>
+    {% for i in posts %}
+    <div>
+    <h2>{{i[1]}}</h2>
+    <p>{{i[2]}}</p>
+    <small>{{i[3]}}</small>
+    <form action="{{url_for('delete_post',id=post[0][0])}}"
+    method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
+    <button class="btn btn-danger">Delete</button>
+</form>
+    </div>
+    
+    {% endfor %}
+</div>
+{% endblock %}
